@@ -13,8 +13,10 @@ import { useRouter } from 'expo-router';
 import styles from './welcome.style';
 import { icons, SIZES } from '../../../constants'; 
 
-const Welcome = () => {
+import { useWindowDimensions } from 'react-native';
 
+const Welcome = () => {
+  const { width } = useWindowDimensions();
   const router = useRouter();
   return (
     <View>
@@ -22,10 +24,10 @@ const Welcome = () => {
         <Text style={styles.userName}>Hello Gojo</Text>
         <Text style={styles.welcomeMessage}>Find your perfect job</Text>
       </View>
-      
+
       <View>
         <TextInput
-          style={styles.searchInput}
+          style={[styles.searchInput, { width: width * 0.92, height: 40, backgroundColor: "#F5F5F5" }]}
         />
       </View>
     </View>
